@@ -13,4 +13,4 @@ const ArticleCard = ({article}) => {
   )
 }
 
-export default ArticleCard
+export default ArticleCard;

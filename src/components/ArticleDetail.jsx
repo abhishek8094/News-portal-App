@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 const ArticleDetail = () => {
   const {title} = useParams();
   const article = useSelector((state) => state.articles.articles.find((article) => article.title === title))
+  // console.log(article)
 
   if(!article){
     return <p>Article not found. </p>
@@ -19,4 +20,4 @@ const ArticleDetail = () => {
   )
 }
 
-export default ArticleDetail
+export default ArticleDetail;
