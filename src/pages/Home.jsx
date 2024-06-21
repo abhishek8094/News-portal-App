@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import fetchArticles from "../api";
+import fetchData from "../api";
 import { setArticles, setStatus, setError } from "../redux/articleSlice";
 import CategoryFilter from "../components/CategoryFilter";
 import ArticleCard from "../components/ArticleCard";
@@ -17,7 +17,7 @@ const Home = () => {
     const loadArticles = async () => {
       dispatch(setStatus("loading"));
       try{
-        const data = await fetchArticles(category, page);
+        const data = await fetchData(category, page);
         dispatch(setArticles(data.articles));
         dispatch(setStatus("succeeded"));
       }catch(err){
