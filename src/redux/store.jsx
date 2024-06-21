@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {articleSlice} from "../redux/articleSlice";
+import articleSlice from "./articleSlice";
 
 const store = configureStore({
     reducer:{

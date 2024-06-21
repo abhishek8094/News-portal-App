@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import fetchArticles from "../api";
+import { setArticles, setStatus, setError } from "../redux/articleSlice";
 import CategoryFilter from "../components/CategoryFilter";
 import ArticleCard from "../components/ArticleCard";
 import Pagination from "../components/Pagination";
@@ -9,25 +11,35 @@ const Home = () => {
   const dispatch = useDispatch();
   const {articles, status, error, category, page} = useSelector((state) => state.articles)
 
-  const fetchdata = async () => {
-    
-    const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=${API_KEY}`
-    );
-    // console.log(response);
-
-    const data = await response.json();
-    console.log(data);
-    setArticles(data.articles);
-  };
-
+  
+  
   useEffect(() => {
-    fetchdata();
-  }, []);
+    const loadArticles = async () => {
+      dispatch(setStatus("loading"));
+      try{
+        const data = await fetchArticles(category, page);
+        dispatch(setArticles(data.articles));
+        dispatch(setStatus("succeeded"));
+      }catch(err){
+        dispatch(setError(err.message));
+        dispatch(setStatus("failed"));
+      }
+    }
+    loadArticles();
+  },[category, page, dispatch]);
+
+  if (status === 'loading') {
+    return <p>Loading...</p>;
+  }
+
+  if (status === 'failed') {
+    return <p>{error}</p>;
+  }
+
   return (
-    <div>
+    <div className="container mx-auto px-4">
       <CategoryFilter/>
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {
           articles.map((article) => (
             <ArticleCard key = {article.title} article = {article} />

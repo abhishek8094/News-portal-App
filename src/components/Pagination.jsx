@@ -9,16 +9,16 @@ const Pagination = () => {
     dispatch(setPage(newPage));
   }
   return (
-    <div>
-      <button onClick={() => handlePageChange(page-1)} disabled = {page ===1}>
+    <div className="flex justify-center space-x-2 my-4">
+      <button className="px-4 py-2 bg-gray-200" onClick={() => handlePageChange(page-1)} disabled = {page ===1}>
       previous
-      </button>
-      <span>{page}</span>
-      <button onClick={() => handlePageChange(page + 1)}>
+      </button  >
+      <span className="px-4 py-2">{page}</span>
+      <button className="px-4 py-2 bg-gray-200" onClick={() => handlePageChange(page + 1)}>
         Next
       </button>
     </div>
   )
 }
 
-export default Pagination
+export default Pagination;

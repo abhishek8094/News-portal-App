@@ -31,4 +31,4 @@ const articleSlice = createSlice({
 });
 
 export const { setArticles, setStatus, setError, setCategory, setPage } = articleSlice.actions;
-export default articlesSlice.reducer;
+export default articleSlice.reducer;
