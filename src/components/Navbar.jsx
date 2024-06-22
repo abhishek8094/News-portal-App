@@ -3,12 +3,13 @@ import logo from "../assets/images/web-logo.jpg";
 import { FaGithubSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="bg-blue-600 flex justify-between p-4">
       <div className="flex">
-        <img src={logo} alt="logo" className="w-8 h-8" />
+        <Link to = "/"><img src={logo} alt="logo" className="w-8 h-8" /></Link>
         <h1 className="text-white text-2xl ml-2">Your News</h1>
       </div>
 
