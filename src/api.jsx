@@ -1,5 +1,5 @@
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
-const BASE_URL = "https://newsapi.org/v2";
+const BASE_URL = "https://newsapi.org/v3";
 
 const fetchArticles = async (category, page) => {
   const url = `${BASE_URL}/top-headlines?country=in&category=${category}&page=${page}&apiKey=${API_KEY}`
