@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategory, setPage } from '../redux/articleSlice';
+import { setCategory, setPage } from '../redux/slices/articleSlice';
 
 const categories = ['Business', 'Entertainment', 'General', 'Health', 'Science', 'Sports', 'Technology'];
 

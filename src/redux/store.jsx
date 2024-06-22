@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import articleSlice from "./articleSlice";
+import articleSlice from "./slices/articleSlice";
+import favoritesSlice from "./slices/favoritesSlice";
+
 
 const store = configureStore({
     reducer:{
-        articles:articleSlice
+        articles:articleSlice,
+        favorites:favoritesSlice
     }
 })
 

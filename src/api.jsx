@@ -3,11 +3,11 @@ const BASE_URL = "https://newsapi.org/v2";
 
 const fetchArticles = async (category, page) => {
   const url = `${BASE_URL}/top-headlines?country=in&category=${category}&page=${page}&apiKey=${API_KEY}`
-  console.log(url)
+  // console.log(url)
 
   try {
     const response = await fetch(url);
-    console.log(response)
+    // console.log(response)
     if (!response.ok) {
       throw new Error("Failed to fetch articles");
     }
