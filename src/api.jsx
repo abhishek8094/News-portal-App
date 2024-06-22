@@ -1,15 +1,21 @@
-const API_KEY =  "44b0a9c64c0f483e92dd8944f2bcd566";
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const BASE_URL = "https://newsapi.org/v2";
 
-const fetchdata = async (category, page) => {
-    const url = `${BASE_URL}/top-headlines?country=us&category=${category}&page=${page}&apiKey=${API_KEY}`;
+const fetchArticles = async (category, page) => {
+  const url = `${BASE_URL}/top-headlines?country=in&category=${category}&page=${page}&apiKey=${API_KEY}`
+  console.log(url)
+
+  try {
     const response = await fetch(url);
-    console.log(response);
-    if(!response.ok){
-        throw new Error("failed to fetch articles");
+    console.log(response)
+    if (!response.ok) {
+      throw new Error("Failed to fetch articles");
     }
-
     return response.json();
-}
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
 
-export default fetchdata;
+export default fetchArticles;
