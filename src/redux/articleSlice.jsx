@@ -8,6 +8,7 @@ const articleSlice = createSlice({
     error: null,
     category: "general",
     page: 1,
+    articlesPerPage: 5
   },
   reducers: {
     setArticles(state, action) {
